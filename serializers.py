@@ -5,4 +5,4 @@ from coursesapp.models import Course, LANGUAGE_CHOICES, STYLE_CHOICES
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = ['id', 'title', 'description', 'actual', 'language', 'style']
+        fields = ['name', 'description', 'category', 'logo', 'contacts', 'branches']

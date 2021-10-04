@@ -1,9 +1,10 @@
 from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
 from coursesapp import views
 
-# Wiring views to URLs
-
 urlpatterns = [
-    path('coursesapp/', views.course_list),
-    path('coursesapp/<int:pk>/', views.course_detail),
+    path('courses/', views.CourseList.as_view()),
+    path('courses/<int:pk>/', views.CourseDetail.as_view()),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

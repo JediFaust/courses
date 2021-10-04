@@ -7,20 +7,9 @@ LEXERS = [item for item in get_all_lexers() if item[1]]
 LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
 STYLE_CHOICES = sorted([(item, item) for item in get_all_styles()])
 
-class Course(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    title = models.CharField(max_length=100, blank=True, default='')
-    description = models.TextField()
-    actual = models.BooleanField(default=False)
-    language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
-    style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
-
-    class Meta:
-        ordering = ['created']
-
 class Category(models.Model):
-	name = models.CharField(max_length=100, blank=True, default='')
-	image = models.TextField()
+	name = models.CharField(max_length=50, blank=True, default='')
+	imgpath = models.TextField()
 
 class Branch(models.Model):
 	latitude = models.CharField(max_length=100, blank=True, default='')
@@ -30,5 +19,17 @@ class Branch(models.Model):
 class Contact(models.Model):
 	type = models.SmallIntegerField()
 	value = models.TextField()
+
+class Course(models.Model):
+    name = models.CharField(max_length=50, blank=True, default='')
+    description = models.TextField()
+    category = models.ForeignKey(Category, on_delete = models.CASCADE)
+    logo = models.TextField()
+    contacts = models.ForeignKey(Contact, on_delete = models.CASCADE)
+    branches = models.ForeignKey(Branch, on_delete = models.CASCADE)
+
+    class Meta:
+        ordering = ['name']
+
 
 
