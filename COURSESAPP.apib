@@ -1,0 +1,33 @@
+FORMAT: 1A
+
+# Courses
+
+Courses is a simple API for handling data about certain courses
+
+## Course List [/courses]
+
+### List All Courses [GET]
+
+HTTP 200 OK
+Allow: GET, POST, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+[
+    {
+        "name": "Node.JS",
+        "description": "JavaScript courses for beginners",
+        "category": 1,
+        "logo": "logotype",
+        "contacts": 1,
+        "branches": 1
+    },
+    {
+        "name": "Python",
+        "description": "Python course for beginners",
+        "category": 1,
+        "logo": "logotyp",
+        "contacts": 1,
+        "branches": 1
+    }
+]
