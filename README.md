@@ -1,5 +1,12 @@
 # Courses App for NeoBis
 
+
+## API BluePrint URL:
+
+```sh
+https://app.apiary.io/coursesapp3
+```
+
 ## Setup
 
 The first thing to do is to clone the repository:
